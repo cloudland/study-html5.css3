@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位(position)</title>
+</head>
+
+<body>
+
+    <section>
+        <h4>定位属性: position</h4>
+        <pre>
+            <b>定位 = 定位模式 + 偏移</b>
+            <span>定位模式用于指定一个元素在文档中的定位方式, 边偏移则决定了该元素的最终位置.</span>
+        </pre>
+        <style>
+            table {
+                border: 1px solid black;
+            }
+
+            table td {
+                border: 1px solid black;
+            }
+        </style>
+
+        <b>定位模式</b>
+        <table>
+            <thead>
+                <tr>
+                    <th>值</th>
+                    <th>语义</th>
+                    <th>用处</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>static</td>
+                    <td>静态定位</td>
+                    <td>很少用, 可以理解为标准流</td>
+                </tr>
+                <tr>
+                    <td>relative</td>
+                    <td>相对定位</td>
+                    <td>在移动位置后, 相对于原来的位置并占有原来位置</td>
+                </tr>
+                <tr>
+                    <td>absolute</td>
+                    <td>绝对定位</td>
+                    <td>不占位。相对于父级元素来定位, 父元素没有定位或没有父级, 以浏览器为准定位。</td>
+                </tr>
+                <tr>
+                    <td>fixed</td>
+                    <td>固定定位</td>
+                    <td>不占位。固定于浏览器可视区位置。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <b>边偏移</b>
+        <p>定位元素移动到最终位置。有 top、bottom、left、right 4个属性。</p>
+
+        <pre>
+            元素加了定位, 可以直接设置宽、高。如果不给定, 默认内容大小。
+        </pre>
+    </section>
+
+    <!-- 相对定位 -->
+    <section style="border: 1px solid black;">
+        <h3>相对定位</h3>
+        <style>
+            .box1 {
+                position: relative;
+                top: 50px;
+                left: 50px;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+    </section>
+
+    <!-- 绝对定位 -->
+    <section style="border: 1px solid black;">
+        <h3>绝对定位</h3>
+        <style>
+            .box3 {
+                position: relative;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .box4 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+
+                width: 30px;
+                height: 30px;
+                background-color: red;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 30px;
+            }
+        </style>
+        <div class="box3">
+            <span>box3</span>
+            <div class="box4">box4</div>
+        </div>
+
+    </section>
+
+    <!-- 固定定位 -->
+    <section style="border: 1px solid black;">
+        <h3>固定定位</h3>
+        <style>
+            .box5 {
+                position: fixed;
+                bottom: 0;
+                right: 10px;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box5">box5</div>
+
+    </section>
+
+    <!-- 小技巧(版心定位) -->
+    <section style="border: 1px solid black;">
+        <h3>小技巧(版心定位)</h3>
+        <style>
+            .box6 {
+                position: fixed;
+                bottom: 50px;
+                /* 浏览器的 50% */
+                left: 50%;
+                /* 设置版心的一半距离, 假设版心宽 720px */
+                margin-left: 360px;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box6">box6(版心定位)</div>
+    </section>
+
+     <!-- 小技巧(粘性定位) -->
+     <section style="border: 1px solid black;">
+        <h3>小技巧(粘性定位)</h3>
+        <style>
+            .box7 {
+                /* 依赖版本支持 */
+                position: sticky;
+                top: 900px;
+                right: 30px;
+
+                width: 90px;
+                height: 300px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 300px;
+            }
+        </style>
+        <div class="box7">box7(粘性定位)</div>
+    </section>
+
+    <!-- 元素居中 -->
+    <section style="border: 1px solid black;">
+        <h3>小技巧(居中定位)</h3>
+        <style>
+            .box8 {
+                position: absolute;
+                /* 父容器的一半 */
+                left: 50%;
+                /* 父容器的一半 */
+                top: 50%;
+                /* 元素的宽度一半 */
+                margin-left: -50px;
+                /* 元素的高度一半 */
+                margin-top: -50px;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box8">box8(居中定位)</div>
+    </section>
+
+    <!-- 蒙层 -->
+    <!-- <section style="border: 1px solid black;">
+        <h3>小技巧(蒙层)</h3>
+        <pre>
+            1. 先设置 body 溢出内容隐藏(overflow: hidden;), 结果是页面移除部分不可以滚动查看;
+            2. 设置蒙层内容超出部分可以竖向滚动(overflow-y: auto;);
+        </pre>
+        <style>
+            /* body {
+                overflow: hidden;
+            } */
+
+            .box9 {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 99;
+
+                /* overflow-y: auto; */
+
+                width: 100%;
+                height: 100%;
+                background-color: rgba(240, 176, 237, .7);
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+
+            }
+
+            .box10 {
+                position: relative;
+                margin: 10px auto;
+
+                width: 600px;
+                height: 900px;
+                background-color: rgb(174, 218, 145);
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box9">
+            <div class="box10">
+                <h4>box9(蒙层)</h4>
+            </div>
+        </div>
+    </section> -->
+
+</body>
+
+</html>

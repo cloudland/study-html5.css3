@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::before&::after</title>
+</head>
+<body>
+    
+    <style>
+    .div1 {
+        width: 200px;
+        height: 200px;
+        background-color: papayawhip;
+    }
+
+    /* 伪元素定义 */
+    .div1::before {
+        /* 必要属性 */
+        content: "";
+    }
+    .div1::after {
+        /* 必要属性 */
+        content: "";
+    }
+    </style>
+
+    <div class="div1"></div>
+
+    <!-- 遮罩事件 -->
+    <h3>伪元素遮罩</h3>
+    <section style="border: 1px solid black;">
+        <style>
+            .box2 {
+                position: relative;
+
+                width: 200px;
+                height: 200px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 200px;
+            }
+
+            .box2::after {
+                content: "";
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, .3);
+            }
+
+            /* 当鼠标经过元素, 修改 display 属性可见 */
+            .box2:hover::after {
+                display: block;
+            }
+
+           
+        </style>
+        <div class="box2">box2</div>
+    </section>
+
+</body>
+</html>

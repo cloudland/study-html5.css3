@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块元素大小设置</title>
+</head>
+<body>
+    <style>
+    .div1 {
+        box-sizing: content-box;
+
+        width: 200px;
+        height: 200px;
+        background-color: bisque;
+        border: 20px solid red;
+        padding: 9px;
+    }
+    .div2 {
+        /* CSS3 盒子模型, 盒子最终大小就是 width 大小 */
+        box-sizing: border-box;
+
+        width: 200px;
+        height: 200px;
+        background-color: plum;
+        border: 20px solid red;
+        padding: 9px;
+    }
+    </style>
+
+    <div class="div1">
+        盒子大小 = width + padding + border    
+    </div>
+
+    <p class="div2">
+        盒子大小 = width
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display&visibility</title>
+</head>
+
+<body>
+
+    <!-- display -->
+    <h3>display</h3>
+    <p>隐藏元素, 不占位</p>
+    <section style="border: 1px solid black;">
+        <style>
+            .box1 {
+                display: none;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+    </section>
+
+    <!-- visibility -->
+    <h3>visibility(可见性)</h3>
+    <p>隐藏元素, 继续占位</p>
+    <section style="border: 1px solid black;">
+        <style>
+            .box3 {
+                /* 显示: visible */
+                visibility: hidden;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .box4 {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+
+                font-size: 9px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        <div class="box3">box3</div>
+        <div class="box4">box4</div>
+    </section>
+
+    <!-- overflow -->
+    <h3>overflow(溢出)</h3>
+    <p>处理超出元素内容</p>
+    <section style="border: 1px solid black;" class="clearfix">
+        <style>
+            .box5 {
+                float: left;
+                /* 显示: visible, 不显示: hidden, 自动: auto */
+                overflow: hidden;
+
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                font-size: 9px;
+                text-align: center;
+            }
+
+            .box6 {
+                float: left;
+                overflow: auto;
+
+                width: 100px;
+                height: 100px;
+                background-color: green;
+
+                font-size: 9px;
+                text-align: center;
+            }
+
+            .box7 {
+                float: left;
+                overflow: visible;
+
+                width: 100px;
+                height: 100px;
+                background-color: burlywood;
+
+                font-size: 9px;
+                text-align: center;
+            }
+
+            /* 双伪元素 */
+            .clearfix:before,
+            .clearfix:after {
+                content: "";
+                display: table;
+            }
+
+            .clearfix:after {
+                clear: both;
+            }
+
+            .clearfix {
+                *zoom: 1;
+            }
+        </style>
+        <div class="box5">
+            <h4>box5(hidden)</h4>
+            <span>我来试试超出内容, 需要多少才能超出内容呢？看来还不够，继续添加内容终止超出。终于超出去了。哈哈哈~~~</span>
+        </div>
+        <div class="box6">
+            <h4>box6(auto)</h4>
+            <span>我来试试超出内容, 需要多少才能超出内容呢？看来还不够，继续添加内容终止超出。终于超出去了。哈哈哈~~~</span>
+        </div>
+        <div class="box7">
+            <h4>box7(visible)</h4>
+            <span>我来试试超出内容, 需要多少才能超出内容呢？看来还不够，继续添加内容终止超出。终于超出去了。哈哈哈~~~</span>
+        </div>
+    </section>
+
+</body>
+
+</html>

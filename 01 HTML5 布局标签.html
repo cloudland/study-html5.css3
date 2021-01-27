@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 新增标签</title>
+
+    <style>
+        header,
+        nav,
+        footer {
+            /* 左右auto: 居中 */
+            margin: 15px auto;
+
+            height: 60px;
+            width: 800px;
+            background-color: rgba(128, 187, 40, .6);
+            /* 矩形圆角 */
+            border-radius: 15px;
+
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .range {
+            /* 左右auto: 居中 */
+            margin: 15px auto;
+
+            height: 200px;
+            width: 800px;
+
+            /* transparent 表示透明 */
+            /* background-color: transparent; */
+        }
+
+        article {
+            float: left;
+
+            height: 200px;
+            width: 49%;
+            background-color: rgba(128, 187, 40, .6);
+            /* 矩形圆角 */
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        aside {
+            float: right;
+
+            height: 200px;
+            width: 49%;
+            background-color: rgba(128, 187, 40, .6);
+            /* 矩形圆角 */
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .section {
+            /* 左右auto: 居中 */
+            margin: 10px auto;
+
+            height: 90px;
+            width: 200px;
+            background-color: rgba(128, 187, 40, .4);
+            /* 矩形圆角 */
+            border-radius: 15px;
+
+            text-align: center;
+            line-height: 90px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部标签 -->
+    <header>
+        <h4>头部标签(header)</h4>
+    </header>
+
+    <!-- 导航标签 -->
+    <nav>
+        <h4>导航(nav)</h4>
+    </nav>
+
+
+    <section class="range">
+        <!-- 内容标签(article)定义外部内容 -->
+        <article>
+            <h4>内容(article)</h4>
+            <!-- 定义文档某个区域, 大的 div -->
+            <section class="section">
+                <h4>区域(section)</h4>
+            </section>
+        </article>
+
+        <!-- 侧边栏标签 -->
+        <aside>
+            <h4>侧边栏(aside)</h4>
+        </aside>
+    </section>
+
+
+
+    <!-- 尾部标签 -->
+    <footer>
+        <h4>尾部(footer)</h4>
+    </footer>
+
+</body>
+
+</html>

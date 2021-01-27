@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动(float)</title>
+    <style>
+        .simple {
+            margin: 5px;
+
+            border: 1px solid black;
+        }
+
+        section div {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>
+            <h1>标准流</h1>
+            <p>块级元素独占一行</p>
+            <caption>
+                <section class="simple">
+                    <div>box1(标准)</div>
+                    <div>box2(标准)</div>
+                </section>
+            </caption>
+        </li>
+        <li>
+            <h1>浮动</h1>
+            <p>可以让多个块级元素一行内排列显示</p>
+            <caption>
+                <h4>网页第一准则: 多个块级元素纵向排列找标准流, 横向排列找浮动</h4>
+                <h4>浮动元素顶端对其, 子元素全部浮动需要清除浮动</h4>
+                <pre>
+                    1. 添加标签 div 指定样式 .clear;
+                    2. 父级标签添加样式 overflow: hidden;
+                    3. :after 伪元素添加样式 clearfix;
+                    4. 双伪元素
+                </pre>
+                <section class="simple clearfix">
+                    <style>
+                        .float {
+                            float: left;
+                        }
+
+                        .box4 {
+                            width: 100px;
+                            height: 190px;
+                            background-color: coral;
+
+                            text-align: center;
+                            line-height: 100px;
+                        }
+
+                        .clear {
+                            clear: both;
+                        }
+
+                        /* 伪元素 */
+                        /* .clearfix::after {
+                            content: "";
+                            display: block;
+                            height: 0;
+                            clear: both;
+                            visibility: hidden;
+                        }
+                        .clearfix {
+                            *zoom: 1;
+                        } */
+
+                        /* 双伪元素 */
+                        .clearfix::before,
+                        .clearfix::after {
+                            content: "";
+                            display: table;
+                        }
+                        .clearfix::after {
+                            clear: both;
+                        }
+                        .clearfix {
+                            *zoom: 1;
+                        }
+                    </style>
+                    <div class="float">box3(浮动)</div>
+                    <div class="float box4">box4(浮动)</div>
+                    <div class="float">box5(浮动)</div>
+                    <!-- <div class="clear"></div> -->
+                </section>
+            </caption>
+
+            <caption>
+                <style>
+                    .box6 {
+                        float: left;
+                    }
+
+                    .box7 {
+                        width: 200px;
+                        height: 200px;
+                        background-color: pink;
+
+                        text-align: center;
+                        line-height: 100px;
+                    }
+                </style>
+                <h4>浮动的元素, 不占位(脱标: 脱离标准流)</h4>
+                <section class="simple">
+                    <div class="box6">box6(浮动)</div>
+                    <div class="box7">box7(标准)</div>
+                </section>
+            </caption>
+
+            <caption>
+                <style>
+                    .span1 {
+                        float: left;
+
+                        width: 100px;
+                        height: 100px;
+                        background-color: pink;
+                    }
+                </style>
+                <h4>任何元素添加浮动, 都具有行内块元素特性</h4>
+                <p>行内块元素添加浮动, 可以直接指定宽、高属性。添加浮动的元素, 没有指定大小时, 大小由内容决定</p>
+                <section class="simple" style="height: 100px;">
+                    <span class="span1">span1(浮动)</span>
+                </section>
+            </caption>
+
+        </li>
+    </ul>
+
+
+
+    <div>
+
+    </div>
+
+</body>
+
+</html>
