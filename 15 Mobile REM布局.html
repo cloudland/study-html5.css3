@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REM 布局</title>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>设备</th>
+                <th>宽度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>iphone4.5</td>
+                <td>640px</td>
+            </tr>
+            <tr>
+                <td>iphone678</td>
+                <td>750px(基准)</td>
+            </tr>
+            <tr>
+                <td>Android</td>
+                <td>720px</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>rem布局</h3>
+    <span>rem(root em)是一个相对单位, 类似于 em。</span>
+    <p>比如: 根元素(html)设置 font-size: 10px; 非根元素设置 width: 2rem = 24px</p>
+
+    <ul>
+        <li>首先确定页面尺寸;</li>
+        <li>再用页面尺寸 / 划分的分数, 得到字体大小</li>
+        <li>元素的 rem 就等于 元素的px值 / 字体大小</li>
+    </ul>
+
+    <b>页面元素的rem值 = 页面元素值(px) / (屏幕宽度 / 划分的分数) 或者 页面元素的rem值 = 页面元素值(px) / 字体大小</b>
+
+    <h4>rem的优点就是可以通过修改html里面的文字大小来改变页面中元素的大小整体控制</h4>
+    <section style="border: 1px solid black;">
+        <style>
+            /* 媒体查询*/
+            @media screen and (min-width: 320px) {
+                html {
+                    font-size: 21.33px;
+                }
+            }
+
+            @media screen and (min-width: 360px) {
+                html {
+                    font-size: 24px;
+                }
+            }
+
+            @media screen and (min-width: 375px) {
+                html {
+                    font-size: 25px;
+                }
+            }
+
+            @media screen and (min-width: 384px) {
+                html {
+                    font-size: 25.6px;
+                }
+            }
+
+            @media screen and (min-width: 400px) {
+                html {
+                    font-size: 26.67px;
+                }
+            }
+
+            @media screen and (min-width: 414px) {
+                html {
+                    font-size: 27.6px;
+                }
+            }
+
+            @media screen and (min-width: 424px) {
+                html {
+                    font-size: 28.26px;
+                }
+            }
+
+            @media screen and (min-width: 480px) {
+                html {
+                    font-size: 32px;
+                }
+            }
+
+            @media screen and (min-width: 540px) {
+                html {
+                    font-size: 45px;
+                }
+            }
+
+            @media screen and (min-width: 720px) {
+                html {
+                    font-size: 48px;
+                }
+            }
+
+            @media screen and (min-width: 750px) {
+                html {
+                    font-size: 50px;
+                }
+            }
+
+            body {
+                margin: 0 auto;
+
+                min-width: 320px;
+                width: 15rem;
+                line-height: 1.5;
+            
+            }
+
+            .div1 {
+                height: 3.125rem;
+                font-size: 1.031411rem;
+                background-color: skyblue;
+                text-align: center;
+                line-height: 3.125rem;
+            }
+        </style>
+        <div class="div1">测试样式</div>
+    </section>
+
+
+
+</body>
+
+</html>
