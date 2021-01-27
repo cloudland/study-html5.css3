@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+</head>
+
+<body>
+
+    <pre>
+    nth-child: 先找到序号的子元素, 在匹配元素类型;
+    nth-of-type: 选匹配元素, 在匹配元素的第几个子元素;
+    </pre>
+
+    <style>
+        /* 选择第一个孩子 */
+        ul li:first-child {
+            background-color: salmon;
+        }
+
+        /* 选择最后一个孩子 */
+        ul li:last-child {
+            background-color: seagreen;
+        }
+
+        /* 指定几就选第几个 */
+        ul li:nth-child(2) {
+            background-color: skyblue;
+        }
+
+        /* even: 偶数, odd: 奇数 */
+        /* ul li:nth-child(odd) {
+            background-color: skyblue;
+        } */
+    </style>
+
+    <ul>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+        <li>第4个</li>
+        <li>第5个</li>
+        <li>第6个</li>
+        <li>第7个</li>
+        <li>第8个</li>
+    </ul>
+
+    <style>
+        /*
+        指定(n), 表示从0开始计算, 第0个元素和超出的会被忽略
+        (2n), 就是偶数
+        (2n+1), 就是奇数
+        (5n), 5,10,15..
+        (n+5), 0+5, 1+5..., 就是从5开始
+        (-n+5), -0+5, -1+5..., 就是前5个
+        */
+        ol li:nth-child(-n+2) {
+            background-color: skyblue;
+        }
+    </style>
+
+    <ol>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+        <li>第4个</li>
+        <li>第5个</li>
+        <li>第6个</li>
+        <li>第7个</li>
+        <li>第8个</li>
+    </ol>
+
+    <style>
+        /*
+        指定(n), 表示从0开始计算, 第0个元素和超出的会被忽略
+        (2n), 就是偶数
+        (2n+1), 就是奇数
+        (5n), 5,10,15..
+        (n+5), 0+5, 1+5..., 就是从5开始
+        (-n+5), -0+5, -1+5..., 就是前5个
+        */
+        section div:nth-of-type(1) {
+            color: skyblue;
+        }
+    </style>
+
+    <section>
+        <span>1</span>
+        <div>2</div>
+        <div>3</div>
+        <p>4</p>
+        <b>5</b>
+    </section>
+
+</body>
+
+</html>
