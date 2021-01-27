@@ -16,7 +16,7 @@
         rotate: 旋转
         sacle: 缩放
     </pre>
-    <p>可以实现元素的位移、旋转、缩放等效果</p>
+    <p>可以实现元素的位移、旋转、缩放等效果。 不会影响别的元素占位。</p>
 
     <!-- 运动 -->
     <h3>移动</h3>
@@ -145,7 +145,12 @@
 
     <!-- 案例一 -->
     <h3>案例一</h3>
-    <p></p>
+    <pre>
+    1. 将子元素绝对定位后, 设置旋转点在左下角;
+    2. 旋转子元素 90度;
+    3. 添加父元素鼠标经过样式, 设置子元素旋转 0 度, 去除设置的默认旋转 90度;
+    4. 设置父元素相对定位, 设置溢出隐藏;
+    </pre>
     <section style="border: 1px solid black; padding: 2px;">
         <style>
             .div6 {
@@ -183,6 +188,33 @@
             <div class="div7">看到我咯, 去除div6的 overflow 会看到原理</div>
         </div>
 
+    </section>
+
+
+    <!-- 缩放 -->
+    <h3>缩放</h3>
+    <p>scale(x, y)</p>
+    <section style="border: 1px solid black;">
+        <style>
+            .div8 {
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+
+                text-align: center;
+                line-height: 100px;
+
+                transition: all .3s;
+            }
+
+            .div8:hover {
+                /* 设置的是倍数, 不需要单位. 一个值表示等比例缩放 */
+                /* transform: scale(1.2, 1.2); */
+                /* 小于 1 等于缩放 */
+                transform: scale(.6);
+            }
+        </style>
+        <div class="div8">box8</div>
     </section>
 
 </body>
