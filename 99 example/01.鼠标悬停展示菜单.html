@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标悬停展示菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-size: cover;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .nav {
+            width: 100%;
+            height: 50px;
+            background: #444444;
+            box-shadow: 0 -2px 2px #000;
+        }
+
+        .nav ul {
+            list-style: none;
+        }
+
+        .nav ul li {
+            float: left;/* 脱离标准流，不再保留原先位置 */
+            width: 150px;
+            height: 50xp;
+            background: #444444;
+            margin-right: 1px;
+            font-size: 14px;
+        }
+
+        /* 鼠标移动到 li 元素上样式变化效果 */
+        .nav ul li:hover {
+            color: #fff;
+            background-color: rgba(238, 82, 83, 1);
+
+            animation: changeColor 2s infinite;
+            animation-delay: 3s;
+        }
+
+        @keyframes changeColor {
+            0% {
+                background: #acb1b3;
+            }
+
+            50% {
+                background: #e36f6f;
+            }
+
+            100% {
+                background: #da871c;
+            }
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* 重点: 子菜单默认不显示 */
+        .nav ul li ul li {
+            display: none; /* 属性设置不显示 */
+            width: 150px;
+            height: 50px;
+            float: initial;
+            background: rgb(179, 186, 186);
+            font-size: 9px;
+
+            /* transform: 0.3s; */
+        }
+
+        /* 重点: 鼠标移动到 li 元素, 就将 子菜单显示 */
+        .nav ul li:hover ul li {
+            display: block; /* 属性设置显示 */
+            border-top: 1px solid rgba(179, 186, 186, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 开始 -->
+    <div class="nav">
+
+        <ul>
+            <li>
+                <a href="#">主页</a>
+                <ul>
+                    <li><a href="#">主页01</a></li>
+                    <li><a href="#">主页02</a></li>
+                    <li><a href="#">主页03</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">产品</a>
+                <ul>
+                    <li><a href="#">产品01</a></li>
+                    <li><a href="#">产品02</a></li>
+                    <li><a href="#">产品03</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">关于</a>
+                <ul>
+                    <li><a href="#">关于01</a></li>
+                    <li><a href="#">关于02</a></li>
+                    <li><a href="#">关于03</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <!-- 导航栏 结束 -->
+
+</body>
+
+</html>

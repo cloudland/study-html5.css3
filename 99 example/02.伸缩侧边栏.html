@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩侧边栏</title>
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+            background: url(./image/background.jpeg) center no-repeat;
+            background-size: cover;
+
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
+
+        .nav {
+            width: 110px;
+            height: 820px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        /* 鼠标移动到 nav 上，元素宽度设置为 280像素 */
+        .nav:hover {
+            width: 280px;
+        }
+
+        .btn {
+            width: 60px;
+            height: 10px;
+            margin-left: 25px;
+            margin-top: 25px;
+
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-item {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .btn-item:nth-child(1) {
+            background: #eb5a56;
+        }
+        .btn-item:nth-child(2) {
+            background: #f8bc33;
+        }
+        .btn-item:nth-child(3) {
+            background: #62cb44;
+        }
+
+        .icon {
+            width: 250px;
+            height: 60px;
+            margin-left: 25px;
+            margin-top: 20px;
+
+            display: flex;
+        }
+
+        .icon-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .icon-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .icon-con {
+            height: 60px;
+            margin-left: 25px;
+        }
+
+        .icon-con p {
+            padding-top: 5px;
+        }
+
+        .icon-con h2 {
+            font-weight: 400;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: rgba(245, 253, 255, 0.5);
+            margin: 20px 25px;
+            transition: 0.5s;
+        }
+
+        .nav:hover .line {
+            width: 230px;
+        }
+
+        .title {
+            width: 60px;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        .title p {
+            font-size: 14px;
+        }
+
+        .menu {
+            width: 230px;
+            margin-left: 25px;
+        }
+
+        .item {
+            display: flex;
+            position: relative;
+            border-radius: 6px;
+
+            transition: .5s;
+        }
+        .item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .licon {
+            width: 60px;
+            height: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .con {
+            width: 0;
+            height: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+            position: relative;
+
+            left: -20px;
+            opacity: 0;
+
+            transition: 0.5s;
+        }
+
+        .nav:hover .con {
+            width: 160px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 1;
+        }
+
+        .ricon {
+            width: 0;
+            height: 50px;
+
+            transition: .5s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .nav:hover .ricon {
+            width: 60px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .fa {
+            font-size: 26px;
+        }
+
+        .ricon .fa {
+            font-size: 20px;
+            color: #62cb44;
+        }
+
+        .light {
+            width: 6px;
+            height: 50px;
+            background: #eb5a56;
+            position: absolute;
+            left: -25px;
+
+            transition: .5s;
+
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            opacity: 0;
+        }
+
+        .item:hover .light {
+            opacity: 1;
+        }
+
+
+        .server {
+            width: 60px;
+            background: rgba(0, 0, 0, .7);
+            margin-left: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .nav:hover .server {
+            width: 230px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 侧边栏 开始 -->
+    <div class="wrap">
+
+        <!-- 菜单内容 开始 -->
+        <div class="nav">
+
+            <!-- 按钮 开始 -->
+            <div class="btn">
+                <div class="btn-item"></div>
+                <div class="btn-item"></div>
+                <div class="btn-item"></div>
+            </div>
+            <!-- 按钮 结束 -->
+
+            <!-- 头像 开始 -->
+            <div class="icon">
+                <!-- 图片 开始 -->
+                <div class="icon-img">
+                    <img src="./image/profile.jpg" alt="" />
+                </div>
+                <!-- 图片 结束 -->
+                <!-- 信息 开始 -->
+                <div class="icon-con">
+                    <p>问候语</p>
+                    <h2>姓名</h2>
+                </div>
+                <!-- 信息 结束 -->
+            </div>
+            <!-- 头像 结束 -->
+
+            <!-- 分割线 -->
+            <div class="line"></div>
+
+            <!-- 菜单标题 开始 -->
+            <div class="title">
+                <p>菜单</p>
+            </div>
+            <!-- 菜单标题 结束 -->
+            <!-- 菜单内容 开始 -->
+            <div class="menu">
+
+                <div class="item">
+                    <div class="light"></div>
+                    <div class="licon">
+                        <span class="fa fa-home"></span>
+                    </div>
+                    <div class="con">主页</div>
+                    <div class="ricon">
+                        <span class="fa fa-angle-right"></span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="light"></div>
+                    <div class="licon">
+                        <span class="fa fa-align-justify"></span>
+                    </div>
+                    <div class="con">关于</div>
+                    <div class="ricon">
+                        <span class="fa fa-angle-right"></span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 菜单内容 结束 -->
+
+            <!-- 分割线 -->
+            <div class="line"></div>
+
+            <div class="title">
+                <p>服务</p>
+            </div>
+            <div class="server">
+
+                <div class="item">
+                    <div class="licon">
+                        <span class="fa fa-cog"></span>
+                    </div>
+                    <div class="con">设置</div>
+                    <div class="rocon"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 菜单内容 结束 -->
+
+    </div>
+    <!-- 侧边栏 结束 -->
+</body>
+
+</html>
