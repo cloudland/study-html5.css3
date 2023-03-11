@@ -11,7 +11,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* border-box: 指定盒子多大就多大, 不会撑开盒子. content-box: 默认, 盒子大小=width+padding+border */
             color: rgba(255, 255, 255, 0.6);
         }
 
@@ -22,8 +22,9 @@
             background-size: cover;
 
             display: flex;
-            align-items:center;
-            justify-content: center;
+            justify-content: center; /* 主轴上元素排列方式 */
+            align-items:center; /* 侧轴上元素排列方式(单行) */
+            
         }
 
         .nav {
